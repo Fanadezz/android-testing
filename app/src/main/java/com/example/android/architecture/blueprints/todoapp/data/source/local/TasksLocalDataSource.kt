@@ -30,8 +30,8 @@ import kotlinx.coroutines.withContext
  * Concrete implementation of a data source as a db.
  */
 class TasksLocalDataSource internal constructor(
-    private val tasksDao: TasksDao,
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+        private val tasksDao: TasksDao,
+        private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : TasksDataSource {
 
     override fun observeTasks(): LiveData<Result<List<Task>>> {
