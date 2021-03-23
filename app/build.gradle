@@ -46,6 +46,10 @@ android {
 
         // ...
     }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
 }
 
 dependencies {
@@ -90,7 +94,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
 
     //hamcreast
-    //implementation "org.hamcrest:hamcrest-core:2.2"
+
     testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
     testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
     //this lib is specifically for testing coroutines
@@ -98,6 +102,10 @@ dependencies {
 
 
     //androidX Fragment Test Dependencies
-    implementation "androidX.fragment:fragment-testing:$fragmentVersion"
-    implementation "androidX.test:core:$androidXTestCoreVersion"
+    implementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    implementation "androidx.test:core:$androidXTestCoreVersion"
+
+    //Dependencies for Android Test Source(Instrumented Unit Tests)
+    androidTestImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 }
