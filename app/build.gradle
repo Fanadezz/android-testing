@@ -95,4 +95,9 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
     //this lib is specifically for testing coroutines
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+
+    //androidX Fragment Test Dependencies
+    implementation "androidX.fragment:fragment-testing:$fragmentVersion"
+    implementation "androidX.test:core:$androidXTestCoreVersion"
 }
