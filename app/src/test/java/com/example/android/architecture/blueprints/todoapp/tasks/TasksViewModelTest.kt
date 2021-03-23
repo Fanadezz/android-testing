@@ -4,6 +4,8 @@ import android.os.Build
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.android.architecture.blueprints.todoapp.data.Task
+import com.example.android.architecture.blueprints.todoapp.data.source.FakeTestRepository
 import com.example.android.architecture.blueprints.todoapp.getOrAwaitValue
 import org.hamcrest.CoreMatchers.*
 import org.hamcrest.MatcherAssert.assertThat
@@ -14,7 +16,7 @@ import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 
 @Config(sdk = [Build.VERSION_CODES.P])
-@RunWith(AndroidJUnit4::class)
+//@RunWith(AndroidJUnit4::class)
 class TasksViewModelTest {
 
 
@@ -26,7 +28,17 @@ class TasksViewModelTest {
 
     @Before
     fun setUpViewModel() {
-        viewModel = TasksViewModel(ApplicationProvider.getApplicationContext())
+
+
+        val tasksRepository = FakeTestRepository()
+
+        val task1 = Task(title = "Title1", description = "Description 1")
+        val task2 = Task(title = "Title2", description = "Description 2")
+        val task3 = Task(title = "Title3", description = "Description 3")
+
+        tasksRepository.addTasks(task1, task2, task3)
+
+        viewModel = TasksViewModel(tasksRepository)
     }
 
 
