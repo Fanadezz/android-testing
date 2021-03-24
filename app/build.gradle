@@ -49,11 +49,11 @@ android {
 
     packagingOptions {
         pickFirst  'META-INF/*'
-        /*exclude "META-INF/DEPENDENCIES"
+        exclude "META-INF/DEPENDENCIES"
         exclude "META-INF/*.SF"
         exclude "META-INF/*.DSA"
         exclude "META-INF/*.RSA"
-        exclude "META-INF/*.DES"*/
+      //exclude "META-INF/*.DES"
     }
 }
 
@@ -106,10 +106,10 @@ dependencies {
     //androidX Fragment Test Dependencies
       // implementation "androidx.fragment:fragment-testing:$fragmentVersion"
     debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
-    debugImplementation "androidx.test:core:$androidXTestCoreVersion"
+    debugImplementation "androidx.test:core:" + rootProject.androidXTestCoreVersion
 
     //Dependencies for Android Test Source(Instrumented Unit Tests)
    //androidTestImplementation "junit:junit:$junitVersion"
-    debugImplementation"junit:junit:$junitVersion"
+    //debugImplementation"junit:junit:$junitVersion"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 }
