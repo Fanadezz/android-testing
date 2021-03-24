@@ -48,17 +48,16 @@ android {
     }
 
     packagingOptions {
-        //pickFirst  'META-INF/*'
-
-       // exclude "META-INF/DEPENDENCIES"
+        pickFirst  'META-INF/*'
+        /*exclude "META-INF/DEPENDENCIES"
         exclude "META-INF/*.SF"
         exclude "META-INF/*.DSA"
         exclude "META-INF/*.RSA"
+        exclude "META-INF/*.DES"*/
     }
 }
 
 dependencies {
-
     // App dependencies
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.cardview:cardview:$cardVersion"
@@ -80,7 +79,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
 
-
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
@@ -98,8 +96,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
 
-    //hamcreast
-
+    //hamcrest
     testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
     testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
     //this lib is specifically for testing coroutines
@@ -107,11 +104,12 @@ dependencies {
 
 
     //androidX Fragment Test Dependencies
-    implementation "androidx.fragment:fragment-testing:$fragmentVersion"
-    implementation "androidx.test:core:$androidXTestCoreVersion"
+      // implementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    debugImplementation "androidx.test:core:$androidXTestCoreVersion"
 
     //Dependencies for Android Test Source(Instrumented Unit Tests)
-   androidTestImplementation "junit:junit:$junitVersion"
-
+   //androidTestImplementation "junit:junit:$junitVersion"
+    debugImplementation"junit:junit:$junitVersion"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 }
