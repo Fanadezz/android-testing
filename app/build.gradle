@@ -48,7 +48,12 @@ android {
     }
 
     packagingOptions {
-        pickFirst  'META-INF/*'
+        //pickFirst  'META-INF/*'
+
+       // exclude "META-INF/DEPENDENCIES"
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
     }
 }
 
@@ -106,6 +111,7 @@ dependencies {
     implementation "androidx.test:core:$androidXTestCoreVersion"
 
     //Dependencies for Android Test Source(Instrumented Unit Tests)
-    androidTestImplementation "junit:junit:$junitVersion"
+   androidTestImplementation "junit:junit:$junitVersion"
+
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 }
