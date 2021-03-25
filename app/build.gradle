@@ -109,7 +109,6 @@ dependencies {
     debugImplementation "androidx.test:core:" + rootProject.androidXTestCoreVersion
 
     //Dependencies for Android Test Source(Instrumented Unit Tests)
-   //androidTestImplementation "junit:junit:$junitVersion"
-    //debugImplementation"junit:junit:$junitVersion"
+   //androidTestImplementation "junit:junit:$junitVersion"/debugImplementation"junit:junit:$junitVersion"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 }
