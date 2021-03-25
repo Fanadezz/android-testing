@@ -38,7 +38,7 @@ ext {
     androidXVersion = '1.0.0'
     androidXTestCoreVersion = '1.3.0'
     androidXTestExtKotlinRunnerVersion = '1.1.2'
-    androidXTestRulesVersion = '1.2.0-beta01'
+    androidXTestRulesVersion = '1.4.0-alpha05'
     androidXAnnotations = '1.1.0'
     androidXLegacySupport = '1.0.0'
     appCompatVersion = '1.2.0'
@@ -59,5 +59,5 @@ ext {
     roomVersion = '2.2.6'
     rulesVersion = '1.0.1'
     timberVersion = '4.7.1'
-    truthVersion = '0.44'
+    truthVersion = '1.1.2'
 }
