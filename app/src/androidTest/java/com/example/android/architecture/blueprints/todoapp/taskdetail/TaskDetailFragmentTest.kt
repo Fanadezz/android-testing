@@ -3,6 +3,7 @@ package com.example.android.architecture.blueprints.todoapp.taskdetail
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import org.junit.Assert.*
@@ -10,21 +11,24 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @MediumTest // signifies Integrate Test -crucial for grouping/filtering tests
-@RunWith(AndroidJUnit4::class)
-class TaskDetailFragmentTest
+@RunWith(AndroidJUnit4ClassRunner::class)
+class TaskDetailFragmentTest{
+    @Test
+    fun activeTasks_displayedInUi(){
+        //GIVEN - Add active (incomplete) task to the DB
+        val activeTask = Task("Active Task", "AndroidX Rocks", false)
+
+        //WHEN - Details fragment launched to display task
+        val bundle = TaskDetailFragmentArgs(activeTask.id).toBundle()
+
+        launchFragmentInContainer<TaskDetailFragment>(bundle, R.style.AppTheme)
 
 
-@Test
-fun activeTasks_displayedInUi(){
-    //GIVEN - Add active (incomplete) task to the DB
-    val activeTask = Task("Active Task", "AndroidX Rocks", false)
-
-    //WHEN - Details fragment launched to display task
-    val bundle = TaskDetailFragmentArgs(activeTask.id).toBundle()
-
-    launchFragmentInContainer<TaskDetailFragment>(bundle, R.style.AppTheme)
 
 
+    }
 
 
 }
+
+
