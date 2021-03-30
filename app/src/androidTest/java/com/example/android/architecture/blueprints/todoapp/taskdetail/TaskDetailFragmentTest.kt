@@ -22,6 +22,7 @@ class TaskDetailFragmentTest{
 
         //launchFragmentInContainer<TaskDetailFragment>(bundle, R.style.AppTheme)
 launchFragmentInContainer<TaskDetailFragment>(bundle, R.style.AppTheme)
+        Thread.sleep(2000)
 
     }
 

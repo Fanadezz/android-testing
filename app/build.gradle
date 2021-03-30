@@ -107,8 +107,8 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     implementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
     implementation "androidx.test:core-ktx:$androidXTestCoreVersion"
-    //implementation "org.robolectric:robolectric:$robolectricVersion"
-
+   // implementation "org.robolectric:robolectric:4.5.1"
+testImplementation "org.robolectric:robolectric:$robolectricVersion"
     // AndroidX Test - Instrumented testing
     androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
@@ -116,7 +116,7 @@ dependencies {
     //hamcrest
     testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
   //  testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
-    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    //testImplementation "org.robolectric:robolectric:$robolectricVersion"
 
 
     //Dependencies for Android Instrumented Unit Tests
