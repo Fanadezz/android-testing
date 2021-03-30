@@ -38,7 +38,9 @@ class DefaultTasksRepository(private val tasksRemoteDataSource: TasksDataSource,
                              private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) :
         ITasksRepository {
 
+    //remove companion object to only use the application provided
 
+/*
     companion object {
         @Volatile
         private var INSTANCE: DefaultTasksRepository? = null
@@ -54,7 +56,7 @@ class DefaultTasksRepository(private val tasksRemoteDataSource: TasksDataSource,
                 }
             }
         }
-    }
+    }*/
 
 
     override suspend fun getTasks(forceUpdate: Boolean): Result<List<Task>> {
