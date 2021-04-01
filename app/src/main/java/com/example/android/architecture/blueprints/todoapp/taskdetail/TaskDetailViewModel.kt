@@ -24,7 +24,7 @@ import com.example.android.architecture.blueprints.todoapp.TodoApplication
 import com.example.android.architecture.blueprints.todoapp.data.Result
 import com.example.android.architecture.blueprints.todoapp.data.Result.Success
 import com.example.android.architecture.blueprints.todoapp.data.Task
-import com.example.android.architecture.blueprints.todoapp.data.source.DefaultTasksRepository
+import com.example.android.architecture.blueprints.todoapp.data.source.ITasksRepository
 import kotlinx.coroutines.launch
 
 /**
@@ -90,7 +90,7 @@ class TaskDetailViewModel(application: Application) : AndroidViewModel(applicati
             return
         }
         // Trigger the load
-        _taskId.value = taskId
+        _taskId.value = taskId!!
     }
 
     private fun computeResult(taskResult: Result<Task>): Task? {
@@ -116,5 +116,13 @@ class TaskDetailViewModel(application: Application) : AndroidViewModel(applicati
 
     private fun showSnackbarMessage(@StringRes message: Int) {
         _snackbarText.value = Event(message)
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    class TaskDetailViewModelFactory(
+           private val application: Application
+    ) : ViewModelProvider.NewInstanceFactory() {
+        override fun <T : ViewModel> create(modelClass: Class<T>) =
+                (TaskDetailViewModel(application) as T)
     }
 }

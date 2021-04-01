@@ -15,6 +15,7 @@
  */
 package com.example.android.architecture.blueprints.todoapp.taskdetail
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -31,7 +32,6 @@ import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.TodoApplication
 import com.example.android.architecture.blueprints.todoapp.databinding.TaskdetailFragBinding
 import com.example.android.architecture.blueprints.todoapp.tasks.DELETE_RESULT_OK
-import com.example.android.architecture.blueprints.todoapp.tasks.TasksViewModel
 import com.example.android.architecture.blueprints.todoapp.util.setupRefreshLayout
 import com.example.android.architecture.blueprints.todoapp.util.setupSnackbar
 import com.google.android.material.snackbar.Snackbar
@@ -45,8 +45,10 @@ class TaskDetailFragment : Fragment() {
     private val args: TaskDetailFragmentArgs by navArgs()
 
     private val viewModel by viewModels<TaskDetailViewModel> {
-        TasksViewModel.TaskViewModelFactory((requireContext().applicationContext as
-                TodoApplication).tasksRepository)
+
+        //TaskDetailViewModel.TaskDetailViewModelFactory((requireContext().applicationContext as
+            //TodoApplication).tasksRepository)
+        TaskDetailViewModel.TaskDetailViewModelFactory(requireContext().applicationContext as Application)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
