@@ -80,7 +80,7 @@ private var database: ToDoDatabase ? = null
             }
 
 
-            //clear all date to avoid pollution issues
+            //clear all data to avoid pollution issues
             database?.apply {
 
                 clearAllTables()
