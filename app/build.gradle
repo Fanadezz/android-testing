@@ -117,12 +117,9 @@ dependencies {
 
     androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
 
-
-
-
-
+    
     androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
-
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion"
 
 
 
@@ -173,9 +170,7 @@ dependencies {
     debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"*/
 
 
-     androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
-     androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion"
-     androidTestImplementation('org.koin:koin-test:2.2.1') { exclude group: 'org.mockito' }
+     //androidTestImplementation('org.koin:koin-test:2.2.1') { exclude group: 'org.mockito' }
 
     //this lib is specifically for testing coroutines
     //androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
