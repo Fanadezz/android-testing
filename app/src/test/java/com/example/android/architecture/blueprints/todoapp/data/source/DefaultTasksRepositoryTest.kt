@@ -1,14 +1,17 @@
 package com.example.android.architecture.blueprints.todoapp.data.source
 
+import com.example.android.architecture.blueprints.todoapp.MainCoroutineRule
 import com.example.android.architecture.blueprints.todoapp.data.Result
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.MatcherAssert
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.IsEqual
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
 class DefaultTasksRepositoryTest {
@@ -28,7 +31,12 @@ class DefaultTasksRepositoryTest {
     //class under test
     private lateinit var tasksRepository: DefaultTasksRepository
 
-    //create a test repo method to be called at the start of each test
+
+    /*Creating a TestCoroutineDispatcher that we can use with these tests*/
+    @ExperimentalCoroutinesApi
+    @get:Rule
+    val mainCoroutineRule = MainCoroutineRule()
+
 
     @Before
     fun createRepository() {
@@ -36,10 +44,10 @@ class DefaultTasksRepositoryTest {
 
         val remoteDataSource = FakeDataSource(remoteTasks.toMutableList())
         val localDataSource = FakeDataSource(localTasks.toMutableList())
-//create repository
+        //create a test repo method to be called at the start of each test
         tasksRepository = DefaultTasksRepository(remoteDataSource,
                                                  localDataSource,
-                                                 Dispatchers.Unconfined)
+                                                 Dispatchers.Main)
     }
 
 
@@ -54,7 +62,14 @@ class DefaultTasksRepositoryTest {
 
                  You should you Run Blocking Test when calling a suspend function
                 */
-    fun getTasks_requestsAllTasksFromRemoteDataSource() = runBlocking {
+
+
+
+    /*Whenever you call runBlockingTest, it creates a new TestCoroutineDispatcher if you don't
+    specify one. MainCoroutineRule includes a TestCoroutineDispatcher. So, to ensure that you
+    don't accidentally crate multiple instances of TestCoroutineDispatcher use mainCoroutineRule
+    .runBlockingTest{}*/
+    fun getTasks_requestsAllTasksFromRemoteDataSource() = mainCoroutineRule.runBlockingTest {
 //when tasks are requested from tasks repository
         val tasks = tasksRepository.getTasks(false) as Result.Success
         //then tasks are loaded from remote data source
