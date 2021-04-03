@@ -1,6 +1,7 @@
 package com.example.android.architecture.blueprints.todoapp.taskdetail
 
 
+import android.os.Bundle
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -54,7 +55,9 @@ class TaskDetailFragmentTest{
 
         repository.saveTask(activeTask)
         //WHEN - Details fragment launched to display task
-        val bundle = TaskDetailFragmentArgs(activeTask.id).toBundle()
+       val bundle = TaskDetailFragmentArgs(activeTask.id).toBundle()
+
+        //launch a fragment using Fragment Scenario
         launchFragmentInContainer<TaskDetailFragment>(bundle, R.style.AppTheme)
 
 

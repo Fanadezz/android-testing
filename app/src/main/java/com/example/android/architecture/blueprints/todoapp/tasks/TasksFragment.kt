@@ -38,6 +38,7 @@ import com.example.android.architecture.blueprints.todoapp.util.setupRefreshLayo
 import com.example.android.architecture.blueprints.todoapp.util.setupSnackbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import org.junit.Test
 import timber.log.Timber
 
 /**
@@ -169,4 +170,7 @@ class TasksFragment : Fragment() {
             Timber.w("ViewModel not initialized when attempting to set up adapter.")
         }
     }
+
+
+
 }

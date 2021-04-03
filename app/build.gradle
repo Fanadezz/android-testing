@@ -44,7 +44,7 @@ android {
         // ...
     }
 
-useLibrary 'android.test.runner'
+//useLibrary 'android.test.runner'
     packagingOptions {
 
        // exclude "**/module-info.class"
@@ -93,16 +93,19 @@ dependencies {
 
     // DEPENDENCIES FOR LOCAL UNIT TESTS
     testImplementation "junit:junit:$junitVersion"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
     implementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
     implementation "androidx.test:core:$androidXTestCoreVersion"
     testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 //hamcrest
-   testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
+  // testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
  //  testImplementation "org.hamcrest:hamcrest-junit:$hamcrestVersion"
 
 
     // ANDROIDX TEST - INSTRUMENTED TESTING
     androidTestImplementation "junit:junit:$junitVersion"
+    //this lib is specifically for testing coroutines
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
     debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
@@ -110,14 +113,14 @@ dependencies {
     //core contains matches and view assertions, included by default on android project
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
     //testing code for advanced views such as recyclerview and Date picker
-    //androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     //androidTestImplementation "androidx.test.espresso:espresso-accessibility:$espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
     androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
 
     androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
 
-    
+//mockito
     androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
     androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion"
 
@@ -172,8 +175,7 @@ dependencies {
 
      //androidTestImplementation('org.koin:koin-test:2.2.1') { exclude group: 'org.mockito' }
 
-    //this lib is specifically for testing coroutines
-    //androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
 
 
     //androidX Fragment Test Dependencies
