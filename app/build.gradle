@@ -40,8 +40,8 @@ android {
     // Always show the result of every unit test when running via command line, even if it passes.
     testOptions.unitTests {
         includeAndroidResources = true
-
-        // ...
+//this option is required to not break out unit tests
+       returnDefaultValues = true
     }
 
 //useLibrary 'android.test.runner'
