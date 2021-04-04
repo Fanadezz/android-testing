@@ -41,16 +41,16 @@ android {
     testOptions.unitTests {
         includeAndroidResources = true
 //this option is required to not break out unit tests
-       returnDefaultValues = true
+        returnDefaultValues = true
     }
 
 //useLibrary 'android.test.runner'
     packagingOptions {
 
-       // exclude "**/module-info.class"
+        // exclude "**/module-info.class"
         exclude 'META-INF/AL2.0'
-       exclude 'META-INF/LGPL2.1'
-   }
+        exclude 'META-INF/LGPL2.1'
+    }
     /*pickFirst 'META-INF/*'
 
      exclude 'META-INF/AL2.0'
@@ -65,78 +65,79 @@ android {
 
 
 
-dependencies {
-    // APP DEPENDENCIES
-    implementation "androidx.appcompat:appcompat:$appCompatVersion"
-    implementation "androidx.cardview:cardview:$cardVersion"
-    implementation "com.google.android.material:material:$materialVersion"
-    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
-    implementation "androidx.annotation:annotation:$androidXAnnotations"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
-    implementation "com.jakewharton.timber:timber:$timberVersion"
-    implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
-    implementation "androidx.room:room-runtime:$roomVersion"
-    kapt "androidx.room:room-compiler:$roomVersion"
+    dependencies {
+        // APP DEPENDENCIES
+        implementation "androidx.appcompat:appcompat:$appCompatVersion"
+        implementation "androidx.cardview:cardview:$cardVersion"
+        implementation "com.google.android.material:material:$materialVersion"
+        implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+        implementation "androidx.annotation:annotation:$androidXAnnotations"
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+        implementation "com.jakewharton.timber:timber:$timberVersion"
+        implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
+        implementation "androidx.room:room-runtime:$roomVersion"
+        kapt "androidx.room:room-compiler:$roomVersion"
 
-    // ARCHITECTURE COMPONENTS
-    implementation "androidx.room:room-runtime:$roomVersion"
-    kapt "androidx.room:room-compiler:$roomVersion"
-    implementation "androidx.room:room-ktx:$roomVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+        // ARCHITECTURE COMPONENTS
+        implementation "androidx.room:room-runtime:$roomVersion"
+        kapt "androidx.room:room-compiler:$roomVersion"
+        implementation "androidx.room:room-ktx:$roomVersion"
+        implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
+        implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
+        implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+        implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
-    // KOTLIN
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+        // KOTLIN
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+        implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
 
-    // DEPENDENCIES FOR LOCAL UNIT TESTS
-    testImplementation "junit:junit:$junitVersion"
-    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
-    implementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
-    implementation "androidx.test:core:$androidXTestCoreVersion"
-    testImplementation "org.robolectric:robolectric:$robolectricVersion"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+        // DEPENDENCIES FOR LOCAL UNIT TESTS
+        testImplementation "junit:junit:$junitVersion"
+        testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+        implementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
+        implementation "androidx.test:core:$androidXTestCoreVersion"
+        testImplementation "org.robolectric:robolectric:$robolectricVersion"
+        testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 //hamcrest
-  // testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
- //  testImplementation "org.hamcrest:hamcrest-junit:$hamcrestVersion"
+        // testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
+        //  testImplementation "org.hamcrest:hamcrest-junit:$hamcrestVersion"
 
 
-    // ANDROIDX TEST - INSTRUMENTED TESTING
-    androidTestImplementation "junit:junit:$junitVersion"
-    //this lib is specifically for testing coroutines
-    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
-    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
-    androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
+        // ANDROIDX TEST - INSTRUMENTED TESTING
+        androidTestImplementation "junit:junit:$junitVersion"
+        //this lib is specifically for testing coroutines
+        androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+        debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
+        androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
 
-    //core contains matches and view assertions, included by default on android project
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    //testing code for advanced views such as recyclerview and Date picker
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
-    //androidTestImplementation "androidx.test.espresso:espresso-accessibility:$espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
-    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
+        //core contains matches and view assertions, included by default on android project
+        androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+        //testing code for advanced views such as recyclerview and Date picker
+        androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+        //androidTestImplementation "androidx.test.espresso:espresso-accessibility:$espressoVersion"
+        androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+        androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
+        implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
 
-    androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
+        androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
 
 //mockito
-    androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
-    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion"
+        androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
+        androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion"
 
 
-    androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+        androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
 
 
-   // testImplementation "org.hamcrest:hamcrest-library:2.2"
-   // testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
-    //testImplementation "org.robolectric:robolectric:$robolectricVersion"
+        // testImplementation "org.hamcrest:hamcrest-library:2.2"
+        // testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+        //testImplementation "org.robolectric:robolectric:$robolectricVersion"
 
 
-    //Dependencies for Android Instrumented Unit Tests
+        //Dependencies for Android Instrumented Unit Tests
 
-    //implementation "androidx.test:core:$androidXTestCoreVersion"
-    // debugImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+        //implementation "androidx.test:core:$androidXTestCoreVersion"
+        // debugImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
 
 
 /*
@@ -152,40 +153,39 @@ dependencies {
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
 */
 
-    // AndroidX Test - JVM testing
-    /* testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
-     testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
-     testImplementation "androidx.test:rules:$androidXTestRulesVersion"*/
+        // AndroidX Test - JVM testing
+        /* testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+         testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+         testImplementation "androidx.test:rules:$androidXTestRulesVersion"*/
 
-    // AndroidX Test - Instrumented testing
-    // androidTestImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
-    // androidTestImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+        // AndroidX Test - Instrumented testing
+        // androidTestImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+        // androidTestImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
 
-    //androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
-    //androidTestImplementation "androidx.test:rules:$androidXTestRulesVersion"
-    //androidTestImplementation "androidx.room:room-testing:$roomVersion"
-    // androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
-    //androidTestImplementation "junit:junit:$junitVersion"
-    /*androidTestImplementation "org.robolectric:annotations:$robolectricVersion"*/
-    // androidTestImplementation "org.robolectric:robolectric:$robolectricVersion"
-    /*androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
-    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
-    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"*/
-
-
-     //androidTestImplementation('org.koin:koin-test:2.2.1') { exclude group: 'org.mockito' }
+        //androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+        //androidTestImplementation "androidx.test:rules:$androidXTestRulesVersion"
+        //androidTestImplementation "androidx.room:room-testing:$roomVersion"
+        // androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+        //androidTestImplementation "junit:junit:$junitVersion"
+        /*androidTestImplementation "org.robolectric:annotations:$robolectricVersion"*/
+        // androidTestImplementation "org.robolectric:robolectric:$robolectricVersion"
+        /*androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+        androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+        androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+        androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
+        debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"*/
 
 
+        //androidTestImplementation('org.koin:koin-test:2.2.1') { exclude group: 'org.mockito' }
 
 
-    //androidX Fragment Test Dependencies
+        //androidX Fragment Test Dependencies
 
-    // debugImplementation "androidx.test:core:$androidXTestCoreVersion"
-    //debugImplementation "androidx.test:monitor:$androidXTestCoreVersion"
+        // debugImplementation "androidx.test:core:$androidXTestCoreVersion"
+        //debugImplementation "androidx.test:monitor:$androidXTestCoreVersion"
 
-    //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
 
-}}
+    }
+}
