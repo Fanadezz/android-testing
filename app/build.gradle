@@ -93,7 +93,7 @@ dependencies {
 
     // DEPENDENCIES FOR LOCAL UNIT TESTS
     testImplementation "junit:junit:$junitVersion"
-    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
     implementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
     implementation "androidx.test:core:$androidXTestCoreVersion"
     testImplementation "org.robolectric:robolectric:$robolectricVersion"
@@ -124,6 +124,8 @@ dependencies {
     androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
     androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion"
 
+
+    androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
 
 
    // testImplementation "org.hamcrest:hamcrest-library:2.2"
