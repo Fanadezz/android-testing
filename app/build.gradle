@@ -108,6 +108,7 @@ android {
         //this lib is specifically for testing coroutines
         androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
         debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
+
         androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
 
         //core contains matches and view assertions, included by default on android project

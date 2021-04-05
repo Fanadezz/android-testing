@@ -94,7 +94,9 @@ class TasksFragmentTest {
 
         //WHEN  - click FAB Button
 //attach navController to fragment
-        fragmentScenario.onFragment {Navigation.setViewNavController(it.view!!, navController)}
+        fragmentScenario.onFragment {
+            Navigation.setViewNavController(it.view!!, navController)
+        }
 
         onView(withId(R.id.add_task_fab)).perform(click())
         //THEN - Navigated to EditTaskFragment
