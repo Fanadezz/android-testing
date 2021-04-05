@@ -3,6 +3,7 @@ package com.example.android.architecture.blueprints.todoapp
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
@@ -13,6 +14,8 @@ import androidx.test.filters.LargeTest
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import com.example.android.architecture.blueprints.todoapp.data.source.ITasksRepository
 import com.example.android.architecture.blueprints.todoapp.tasks.TasksActivity
+import com.example.android.architecture.blueprints.todoapp.util.DataBindingIdlingResource
+import com.example.android.architecture.blueprints.todoapp.util.EspressoIdlingResource
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.not
 import org.junit.After
@@ -46,6 +49,24 @@ class TasksActivityTest {
         ServiceLocator.resetRepository()
     }
 
+    private val dataBindingIdlingResource = DataBindingIdlingResource()
+    @Before
+    fun registerIdlingResource() {
+
+        /*By registering these 2 resources in your test, when either of these 2
+        * resources is busy espresso will wait until they are idle before moving
+        * to the next command*/
+
+        IdlingRegistry.getInstance().register(EspressoIdlingResource.countingIdlingResource)
+        IdlingRegistry.getInstance().register(dataBindingIdlingResource)
+
+    }
+
+    @After
+    fun unregisterIdlingResource() {
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.countingIdlingResource)
+        IdlingRegistry.getInstance().unregister(dataBindingIdlingResource)
+    }
 
     @Test
     fun editTask() = runBlocking {
@@ -55,6 +76,7 @@ class TasksActivityTest {
         //Start up Tasks screen
         val activityScenario = ActivityScenario.launch(TasksActivity::class.java)
 
+        //
 
         //Click on the task on the list and verify that all data is correct
         onView(withText("Title 1")).perform(click())
