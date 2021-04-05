@@ -63,7 +63,7 @@ class TasksFragmentTest {
 
         fragmentScenario.onFragment {
 
-            //here we can call methods on the fragment iself
+            //here we can call methods on the fragment itself
             Navigation.setViewNavController(it.view!!, navController)
 
 
